@@ -13,9 +13,6 @@ def main():
 
     test_scene = obj.parse('assets/models/test_scene.obj')
 
-    for v in test_scene:
-        print(v)
-
     while True:
         event.get_events(events)
         render.render()
