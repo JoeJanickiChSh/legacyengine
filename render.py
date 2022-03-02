@@ -5,7 +5,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 
-def init(windowSize):
+def init(windowSize: tuple[int]):
     gluPerspective(60, (windowSize[0] / windowSize[1]), 0.01, 100.0)
     glEnable(GL_DEPTH_TEST)
 
