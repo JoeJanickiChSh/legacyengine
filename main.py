@@ -71,19 +71,24 @@ def main():
         rotation = Vector(
             math.sin(camera.rotation.y),
             -math.cos(camera.rotation.y)
-        ) * 0.0011
+        )
+
+        acceleration = Vector()
         if events.key_down(pg.K_w):
-            velocity.x += rotation.x
-            velocity.z += rotation.y
+            acceleration.x += rotation.x
+            acceleration.z += rotation.y
         if events.key_down(pg.K_s):
-            velocity.x -= rotation.x
-            velocity.z -= rotation.y
+            acceleration.x -= rotation.x
+            acceleration.z -= rotation.y
         if events.key_down(pg.K_a):
-            velocity.x += rotation.y
-            velocity.z -= rotation.x
+            acceleration.x += rotation.y
+            acceleration.z -= rotation.x
         if events.key_down(pg.K_d):
-            velocity.x -= rotation.y
-            velocity.z += rotation.x
+            acceleration.x -= rotation.y
+            acceleration.z += rotation.x
+        if acceleration.length() != 0:
+            acceleration = acceleration.normalize() * 0.0011
+        velocity += acceleration
 
         velocity.y -= 0.0003
 
