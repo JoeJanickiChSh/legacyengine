@@ -16,8 +16,8 @@ def main():
     render.init(WINDOW_SIZE)
     events = event.Events()
 
-    test_scene = obj.parse('assets/models/forest.obj')
-    skybox = obj.parse('assets/models/skybox.obj')
+    test_scene = obj.parse('assets/models/moon.obj')
+    skybox = obj.parse('assets/models/moon_skybox.obj')
     skybox.scale *= 500
     skybox.shade = False
     scene = [test_scene, skybox]
