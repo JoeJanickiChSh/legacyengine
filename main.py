@@ -31,6 +31,7 @@ def main():
 
         camera.rotation.y += events.mouse_move[0] / 500.0
         camera.rotation.x += events.mouse_move[1] / 500.0
+        camera.rotation.x = min(math.pi/2, max(-math.pi/2, camera.rotation.x))
 
         rotation = Vector(
             math.sin(camera.rotation.y),
