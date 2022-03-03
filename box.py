@@ -1,5 +1,3 @@
-from turtle import pos
-from numpy import bool8
 from vector3d.vector import Vector
 
 

@@ -1,5 +1,4 @@
 import math
-from copy import deepcopy
 
 import pygame as pg
 from vector3d.vector import Vector
