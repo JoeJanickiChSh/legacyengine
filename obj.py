@@ -1,5 +1,5 @@
-from pyexpat import model
 from vector3d.vector import Vector
+
 from model import Model
 
 
@@ -24,7 +24,8 @@ def parse(filename: str) -> Model:
             elif line[0] == 'vt':
                 x = float(line[1])
                 y = float(line[2])
-                uvs.append(Vector(x, y))
+                # Possible bug somewhere else that inverts the y-axis of UVs
+                uvs.append(Vector(x, 1-y))
             elif line[0] == 'f':
                 face = []
                 for v in line[1:]:

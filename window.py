@@ -1,8 +1,7 @@
 import pygame as pg
-from pygame.locals import *
-
 from OpenGL.GL import *
 from OpenGL.GLU import *
+from pygame.locals import *
 
 
 def init(windowSize: tuple[int], name: str):

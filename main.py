@@ -1,8 +1,7 @@
-from cgi import test
-import render
-import window
 import event
 import obj
+import render
+import window
 
 
 def main():
@@ -12,10 +11,11 @@ def main():
     events = event.Events()
 
     test_scene = obj.parse('assets/models/test_scene.obj')
+    scene = [test_scene]
 
     while True:
         event.get_events(events)
-        render.render()
+        render.render(scene)
 
 
 if __name__ == '__main__':
