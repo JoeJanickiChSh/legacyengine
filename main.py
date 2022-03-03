@@ -110,9 +110,6 @@ def main():
 
         camera.position = camera_box.position * 1.0
 
-        if scene_collision(camera_box, collisions):
-            print("Collision")
-
 
 if __name__ == '__main__':
     main()
