@@ -11,12 +11,12 @@ from camera import Camera
 
 
 def main():
-    WINDOW_SIZE = (800, 600)
+    WINDOW_SIZE = (1080, 720)
     window.init(WINDOW_SIZE, "Game")
     render.init(WINDOW_SIZE)
     events = event.Events()
 
-    test_scene = obj.parse('assets/models/test_scene.obj')
+    test_scene = obj.parse('assets/models/forest.obj')
     scene = [test_scene]
 
     camera = Camera(Vector(0, 1, -0.8), Vector(0, 0, 0))
