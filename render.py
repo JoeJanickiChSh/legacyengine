@@ -60,9 +60,7 @@ def draw(scene: list[Model]):
 
             normal = get_normal(face[0][0], face[1][0], face[2][0])
             shade = shading(normal, Vector(1, 1, 1).normalize())
-            for v in face:
-                vert = v[0]
-                uv = v[1]
+            for vert, uv in face:
 
                 vert = Vector(vert.x * obj.scale.x,
                               vert.y * obj.scale.y, vert.z * obj.scale.z)
