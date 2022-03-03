@@ -17,7 +17,10 @@ def main():
     events = event.Events()
 
     test_scene = obj.parse('assets/models/forest.obj')
-    scene = [test_scene]
+    skybox = obj.parse('assets/models/skybox.obj')
+    skybox.scale *= 500
+    skybox.shade = False
+    scene = [test_scene, skybox]
 
     camera = Camera(Vector(0, 1, -0.8), Vector(0, 0, 0))
     velocity = Vector(0, 0, 0)
@@ -52,6 +55,8 @@ def main():
             velocity.y -= 0.001
 
         camera.position += velocity
+
+        skybox.position = camera.position * 1.0
 
         velocity *= 0.96
 

@@ -6,6 +6,9 @@ class Model:
         self.verts = verts
         self.uvs = uvs
         self.faces = faces
+        self.position = Vector(0, 0, 0)
+        self.scale = Vector(1, 1, 1)
+        self.shade = True
 
     def __iter__(self):
         self.index = 0

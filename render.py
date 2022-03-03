@@ -30,7 +30,7 @@ def load_texture(filename: str) -> int:
 
 
 def init(windowSize: tuple[int]):
-    gluPerspective(60, (windowSize[0] / windowSize[1]), 0.01, 100.0)
+    gluPerspective(60, (windowSize[0] / windowSize[1]), 0.01, 1000.0)
 
     load_texture('assets/images/atlas.png')
 
@@ -64,7 +64,13 @@ def draw(scene: list[Model]):
                 vert = v[0]
                 uv = v[1]
 
-                glColor3f(shade, shade, shade)
+                vert = Vector(vert.x * obj.scale.x,
+                              vert.y * obj.scale.y, vert.z * obj.scale.z)
+                vert = vert + obj.position
+                if obj.shade:
+                    glColor3f(shade, shade, shade)
+                else:
+                    glColor3f(1, 1, 1)
                 glTexCoord2f(uv.x, uv.y)
                 glVertex3f(vert.x, vert.y, vert.z)
     glEnd()
