@@ -1,3 +1,4 @@
+from copy import deepcopy
 import math
 
 import pygame as pg
@@ -29,7 +30,7 @@ def main():
     render.init(WINDOW_SIZE)
     events = event.Events()
 
-    test_scene = obj.parse('assets/models/city.obj')
+    test_scene = obj.parse('assets/models/factory.obj')
     skybox = obj.parse('assets/models/city_skybox.obj')
     skybox.scale *= 500
     skybox.shade = False

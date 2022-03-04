@@ -74,11 +74,7 @@ def draw(scene: list[Model]):
     glEnd()
 
 
-rotation = 0
-
-
 def render(scene: list[Model], camera: Camera):
-    global rotation
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glClearColor(0.5, 0.5, 0.5, 1.)
     glPushMatrix()
