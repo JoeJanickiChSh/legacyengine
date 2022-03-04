@@ -88,6 +88,5 @@ def render(scene: list[Model], camera: Camera):
     draw(scene)
 
     glPopMatrix()
-    rotation += 0.1
     pg.display.flip()
     pg.time.wait(1)
