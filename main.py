@@ -19,13 +19,18 @@ def scene_collision(camera_box: Box, collisions: list[Box]):
 
 
 def main():
+    MOVE_SPEED = 0.0011
+    JUMP_HEIGHT = 0.04
+    GRAVITY = 0.0003
+    FRICTION = 0.96
+
     WINDOW_SIZE = (1080, 720)
     window.init(WINDOW_SIZE, "Game")
     render.init(WINDOW_SIZE)
     events = event.Events()
 
-    test_scene = obj.parse('assets/models/moon.obj')
-    skybox = obj.parse('assets/models/moon_skybox.obj')
+    test_scene = obj.parse('assets/models/city.obj')
+    skybox = obj.parse('assets/models/city_skybox.obj')
     skybox.scale *= 500
     skybox.shade = False
 
@@ -61,6 +66,7 @@ def main():
     velocity = Vector(0, 0, 0)
 
     while True:
+
         event.get_events(events)
         render.render(scene, camera)
 
@@ -87,10 +93,10 @@ def main():
             acceleration.x -= rotation.y
             acceleration.z += rotation.x
         if acceleration.length() != 0:
-            acceleration = acceleration.normalize() * 0.0011
+            acceleration = acceleration.normalize() * MOVE_SPEED
         velocity += acceleration
 
-        velocity.y -= 0.0003
+        velocity.y -= GRAVITY
 
         camera_box.position.x += velocity.x
         if scene_collision(camera_box, collisions):
@@ -101,14 +107,14 @@ def main():
             camera_box.position.y -= velocity.y
             velocity.y = 0
             if events.key_down(pg.K_SPACE):
-                velocity.y = 0.03
+                velocity.y = JUMP_HEIGHT
         camera_box.position.z += velocity.z
         if scene_collision(camera_box, collisions):
             camera_box.position.z -= velocity.z
             velocity.z = 0
 
-        velocity.x *= 0.96
-        velocity.z *= 0.96
+        velocity.x *= FRICTION
+        velocity.z *= FRICTION
 
         skybox.position = camera_box.position * 1.0
 
