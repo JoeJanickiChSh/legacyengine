@@ -30,8 +30,8 @@ def main():
     render.init(WINDOW_SIZE)
     events = event.Events()
 
-    test_scene = obj.parse('assets/models/factory.obj')
-    skybox = obj.parse('assets/models/city_skybox.obj')
+    test_scene = obj.parse('assets/models/forest.obj')
+    skybox = obj.parse('assets/models/skybox.obj')
     skybox.scale *= 500
     skybox.shade = False
 
@@ -119,7 +119,7 @@ def main():
 
         skybox.position = camera_box.position * 1.0
 
-        camera.position = camera_box.position * 1.0
+        camera.position = camera_box.position + Vector(0, 0.5, 0)
 
 
 if __name__ == '__main__':
