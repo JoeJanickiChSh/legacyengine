@@ -20,7 +20,7 @@ def scene_collision(camera_box: Box, collisions: list[Box]):
 
 
 def main():
-    MOVE_SPEED = 0.0011
+    MOVE_SPEED = 0.0018
     JUMP_HEIGHT = 0.04
     GRAVITY = 0.0003
     FRICTION = 0.96
@@ -30,7 +30,7 @@ def main():
     render.init(WINDOW_SIZE)
     events = event.Events()
 
-    test_scene = obj.parse('assets/models/forest.obj')
+    test_scene = obj.parse('assets/models/factory.obj')
     skybox = obj.parse('assets/models/skybox.obj')
     skybox.scale *= 500
     skybox.shade = False
